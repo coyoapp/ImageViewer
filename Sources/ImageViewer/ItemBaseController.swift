@@ -197,7 +197,7 @@ open class ItemBaseController<T: UIView>: UIViewController, ItemController, UIGe
 
     open func fetchImage() {
 
-        fetchImageBlock { [weak self] image in
+        fetchImageBlock { [weak self] image, _ in
 
             if let image = image {
 
