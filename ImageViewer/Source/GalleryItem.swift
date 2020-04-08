@@ -8,9 +8,9 @@
 
 import UIKit
 
-public typealias ImageCompletion = (UIImage?) -> Void
+public typealias ImageCompletion = (UIImage?, URL?) -> Void
 public typealias FetchImageBlock = (@escaping ImageCompletion) -> Void
-public typealias ItemViewControllerBlock = (_ index: Int, _ itemCount: Int, _ fetchImageBlock: FetchImageBlock, _ configuration: GalleryConfiguration, _ isInitialController: Bool) -> UIViewController
+public typealias ItemViewControllerBlock = (_ index: Int, _ itemCount: Int, _ fetchImageBlock: @escaping FetchImageBlock, _ configuration: GalleryConfiguration, _ isInitialController: Bool) -> UIViewController
 
 public enum GalleryItem {
 

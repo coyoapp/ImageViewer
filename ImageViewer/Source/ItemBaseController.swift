@@ -18,7 +18,7 @@ open class ItemBaseController<T: UIView>: UIViewController, ItemController, UIGe
     //UI
     public var itemView = T()
     let scrollView = UIScrollView()
-    let activityIndicatorView = UIActivityIndicatorView(style: .white)
+    public let activityIndicatorView = UIActivityIndicatorView(style: .white)
 
     //DELEGATE / DATASOURCE
     weak public var delegate:                 ItemControllerDelegate?
@@ -30,7 +30,7 @@ open class ItemBaseController<T: UIView>: UIViewController, ItemController, UIGe
     let itemCount: Int
     var swipingToDismiss: SwipeToDismiss?
     fileprivate var isAnimating = false
-    fileprivate var fetchImageBlock: FetchImageBlock
+    public let fetchImageBlock: FetchImageBlock
 
     //CONFIGURATION
     fileprivate var presentationStyle = GalleryPresentationStyle.displacement
@@ -195,9 +195,9 @@ open class ItemBaseController<T: UIView>: UIViewController, ItemController, UIGe
         fetchImage()
     }
 
-    public func fetchImage() {
+    open func fetchImage() {
 
-        fetchImageBlock { [weak self] image in
+        fetchImageBlock { [weak self] image, _ in
 
             if let image = image {
 
